@@ -1,5 +1,8 @@
 .DS_Store
 
+PRE_02_mapreduce/data/input/*
+PRE_02_mapreduce/data/output/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
