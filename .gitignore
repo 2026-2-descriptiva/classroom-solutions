@@ -2,6 +2,8 @@
 
 PRE_02_mapreduce/data/input/*
 PRE_02_mapreduce/data/output/*
+PRE_03_csv2json/data/drivers.json
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
