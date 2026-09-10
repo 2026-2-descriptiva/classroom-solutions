@@ -3,11 +3,15 @@ import json
 
 from nicegui import ui
 
+DATA_FOLDER = "PRE_03_csv2json/data"
+OUTPUT_FOLDER = "PRE_03_csv2json/temp"
+
 
 def convert_csv_2_json(input_file):
     """Converts a CSV file to a JSON file"""
 
     output_file = input_file.replace(".csv", ".json")
+    output_file = output_file.replace("/data/", "/temp/")
     data = []
 
     with open(input_file, "r", encoding="utf-8") as f:

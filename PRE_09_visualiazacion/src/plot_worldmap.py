@@ -6,7 +6,7 @@ import pandas as pd  # type: ignore
 INPUT_FILE = "https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/scopus-papers.csv"
 GEO_DATA_URL = "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/world-countries.json"
 
-OUTPUT_DIR = "PRE_06_visualiazacion/data/output"
+OUTPUT_DIR = "PRE_09_visualiazacion/temp"
 COUNTRY_FREQUENCY_FILE = f"{OUTPUT_DIR}/countries.csv"
 WORLD_MAP_FILE = f"{OUTPUT_DIR}/map.html"
 
@@ -78,10 +78,6 @@ def _make_worldmap(countries):
     ).add_to(m)
 
     m.save(WORLD_MAP_FILE)
-
-
-def _select_most_frequent_countries(countries, n_countries):
-    return countries.head(n_countries)
 
 
 def plot_worldmap():

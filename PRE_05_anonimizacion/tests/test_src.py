@@ -4,7 +4,7 @@ import pandas as pd
 
 FOLDER = "PRE_05_anonimizacion"
 
-OUTPUT_FILE = f"{FOLDER}/data/anonymized.csv"
+OUTPUT_FILE = f"{FOLDER}/submission/anonymized.csv"
 
 
 def test_01():

@@ -2,7 +2,6 @@ import os
 
 import matplotlib.pyplot as plt  # type: ignore
 import networkx as nx  # type: ignore
-import pandas as pd  # type: ignore
 
 try:
     from .plot_worldmap import (
@@ -12,7 +11,6 @@ try:
         _create_countries_column,
         _load_affiliations,
         _remove_na_rows,
-        _select_most_frequent_countries,
     )
 except ImportError:
     from plot_worldmap import (
@@ -22,7 +20,6 @@ except ImportError:
         _create_countries_column,
         _load_affiliations,
         _remove_na_rows,
-        _select_most_frequent_countries,
     )
 
 CO_OCCURRENCES_FILE = f"{OUTPUT_DIR}/co_occurrences.csv"

@@ -6,7 +6,7 @@ from ..src.clean import main
 
 FOLDER = "PRE_04_limpieza"
 
-OUTPUT_FILE = f"{FOLDER}/data/clean/ventas.csv"
+OUTPUT_FILE = f"{FOLDER}/submission/ventas.csv"
 
 
 def test_01():

@@ -3,10 +3,14 @@ import os.path
 import string
 import time
 
+DATA_FOLDER = "PRE_02_mapreduce/data"
+INPUT_FOLDER = "PRE_02_mapreduce/temp/input"
+OUTPUT_FOLDER = "PRE_02_mapreduce/temp/output"
+
 
 def clear_folder(folder):
     if os.path.exists(folder):
-        for file in glob.glob(f"{folder}*"):
+        for file in glob.glob(f"{folder}/*"):
             os.remove(file)
 
 
@@ -29,7 +33,7 @@ def delete_folder(folder):
 
 def generate_file_copies(n):
 
-    for file in glob.glob("PRE_02_mapreduce/data/raw/*"):
+    for file in glob.glob(f"{DATA_FOLDER}/*"):
         with open(file, "r", encoding="utf-8") as f:
             text = f.read()
 
@@ -39,9 +43,7 @@ def generate_file_copies(n):
                 raw_filename_with_extension
             )[0]
             new_filename = f"{raw_filename_without_extension}_{i:05d}.txt"
-            with open(
-                f"PRE_02_mapreduce/data/input/{new_filename}", "w", encoding="utf-8"
-            ) as f2:
+            with open(f"{INPUT_FOLDER}/{new_filename}", "w", encoding="utf-8") as f2:
                 f2.write(text)
 
 
@@ -82,7 +84,7 @@ def hadoop(input_folder, output_folder, mapper_fn, reducer_fn):
 
     def read_records_from_input(input_folder):
         sequence = []
-        files = glob.glob(f"{input_folder}*")
+        files = glob.glob(f"{input_folder}/*")
         for file in files:
             with open(file, "r", encoding="utf-8") as f:
                 for line in f:
@@ -118,14 +120,14 @@ def hadoop(input_folder, output_folder, mapper_fn, reducer_fn):
 
 if __name__ == "__main__":
 
-    initialize_folder("PRE_02_mapreduce/data/input/")
-    delete_folder("PRE_02_mapreduce/data/output/")
+    initialize_folder(INPUT_FOLDER)
+    delete_folder(OUTPUT_FOLDER)
     generate_file_copies(1000)
     start_time = time.time()
 
     hadoop(
-        input_folder="PRE_02_mapreduce/data/input/",
-        output_folder="PRE_02_mapreduce/data/output/",
+        input_folder=INPUT_FOLDER,
+        output_folder=OUTPUT_FOLDER,
         mapper_fn=mapper,
         reducer_fn=reducer,
     )

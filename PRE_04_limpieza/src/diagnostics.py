@@ -1,7 +1,7 @@
 import pandas as pd
 
-INPUT_FILE = "PRE_04_limpieza/data/raw/ventas.csv"
-OUTPUT_FILE = "PRE_04_limpieza/data/clean/ventas.csv"
+INPUT_FILE = "PRE_04_limpieza/data/ventas.csv"
+OUTPUT_FILE = "PRE_04_limpieza/submission/ventas.csv"
 
 
 def print_collisions(series, fn):

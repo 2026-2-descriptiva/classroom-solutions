@@ -2,8 +2,8 @@ import os
 
 import pandas as pd
 
-INPUT_FILE = "PRE_04_limpieza/data/raw/ventas.csv"
-OUTPUT_FILE = "PRE_04_limpieza/data/clean/ventas.csv"
+INPUT_FILE = "PRE_04_limpieza/data/ventas.csv"
+OUTPUT_FILE = "PRE_04_limpieza/submission/ventas.csv"
 
 
 SUPPLIER_REPLACEMENTS = {
@@ -167,7 +167,7 @@ def clean_purchase_date_format(series):
 def clean_amount(series):
     series = strip_whitespace(series)
     series = series.str.replace("COP ", "", regex=False)
-    series = series.str.replace("\.00K$", "000", regex=True)
+    series = series.str.replace(r"\.00K$", "000", regex=True)
     series = series.str.replace("$", "", regex=False)
     series = series.str.replace(",", "", regex=False)
     series = series.str.replace(".", "", regex=False)
@@ -206,7 +206,7 @@ def clean_weight(series):
 def clean_unit_price(series):
     series = strip_whitespace(series)
     series = series.str.replace("$", "", regex=False)
-    series = series.str.replace("\.00$", "", regex=True)
+    series = series.str.replace(r"\.00$", "", regex=True)
     series = series.str.replace(",", "", regex=False)
     series = series.str.replace(".", "", regex=False)
     return series
@@ -220,9 +220,6 @@ def make_replacements(series, replacements):
 
 
 def main():
-
-    if not os.path.exists("PRE_04_limpieza/data/clean/"):
-        os.mkdir("PRE_04_limpieza/data/clean/")
 
     df = pd.read_csv(INPUT_FILE)
 
