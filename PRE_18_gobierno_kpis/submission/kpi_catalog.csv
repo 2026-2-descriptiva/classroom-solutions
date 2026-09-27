@@ -1,0 +1,4 @@
+kpi,numerador_o_formula,denominador,grano,período,propietario,fuente
+Ventas netas,SUM(net_sales),No aplica,Línea de pedido,Mensual,Gerencia comercial,Mart de ventas
+Unidades vendidas,SUM(quantity),No aplica,Línea de pedido,Mensual,Gerencia comercial,Mart de ventas
+Descuento promedio ponderado,SUM(gross_sales * discount_pct),SUM(gross_sales),Línea de pedido,Mensual,Gerencia comercial,Mart de ventas

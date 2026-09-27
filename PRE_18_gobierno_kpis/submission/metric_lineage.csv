@@ -1,0 +1,4 @@
+campo_origen,kpi,transformación
+fact_sales.net_sales,Ventas netas,SUM por período y segmento
+fact_sales.quantity,Unidades vendidas,SUM por período y segmento
+fact_sales.gross_sales y discount_pct,Descuento promedio ponderado,SUM descuento / SUM venta bruta
