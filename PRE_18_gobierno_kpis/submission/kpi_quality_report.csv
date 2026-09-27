@@ -1,5 +1,0 @@
-regla,pasa,estado
-Llave de hecho única,True,PASS
-Ventas netas no negativas,True,PASS
-Cantidades positivas,True,PASS
-Fechas del hecho presentes,True,PASS
